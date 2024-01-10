@@ -1,9 +1,20 @@
 import "./App.css";
+import { History } from "./components/History";
+import { Logo } from "./components/Logo";
+import { Main } from "./components/Main";
+import { Navbar } from "./components/Navbar";
+import { PasteUrl } from "./components/PasteUrl";
+import { TaskList } from "./components/TaskList";
 
 function App() {
   return (
     <>
-      <h1>Hello</h1>
+    <Logo />
+    <Navbar />
+    <History />
+    <PasteUrl />
+    <Main />
+    <TaskList />
     </>
   );
 }
