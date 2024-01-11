@@ -1,0 +1,88 @@
+{
+    "kind": "youtube#videoListResponse",
+    "etag": "IR2mwvM9KI2yyAqtu4qaiyHBN_c",
+    "items": [
+        {
+            "kind": "youtube#video",
+            "etag": "uxBvQgW1eFadfWR85Ab9rLhTkBQ",
+            "id": "Mc13Z2gboEk",
+            "snippet": {
+                "publishedAt": "2019-10-02T16:59:51Z",
+                "channelId": "UCxboW7x0jZqFdvMdCFKTMsQ",
+                "title": "Make Your First 2D Game with Godot: Player and Enemy (beginner tutorial part 1)",
+                "description": "Learn to create your own games with Godot in this beginner tutorial series.\n\nGet our best free Godot tutorials and resources: https://gdquest.com/get-started\n\nPart 2: https://youtu.be/6ziIyx60N6I\n\nLINKS\n\nDownloiad the start assets: https://github.com/GDQuest/Your-First-Game-Godot-2d-Platformer/releases/tag/1.1.0\nGDScript beginner tutorial: https://youtu.be/UcdwP1Q2UlU\nLearn Godot with free resources: https://www.gdquest.com/tutorial/godot/learning-paths/beginner/\nGodot step-by-step getting started guide: https://docs.godotengine.org/en/latest/getting_started/step_by_step/intro_to_the_editor_interface.html\n\nThis project is sponsored by Gamblify: https://www.gamblify.com/\n\nCONTENTS\n\n00:00:00 Intro\n00:00:25 Who this course is for\n00:00:59 What you will learn\n00:01:37 Get the extended edition\n\nThe Player\n\n00:02:19 Getting the assets\n00:02:48 Creating the Godot project\n00:04:13 Creating the Player scene\n00:11:46 Setting up the Player scripts\n00:15:17 Coding character movement\n00:15:56 Getting type hints with autocompletion\n00:19:52 Adding gravity\n00:23:44 Limiting the player's speed\n00:27:04 Adding a floor\n00:31:52 Setting up physics layers\n00:36:31 Coding the input\n00:43:13 Calculating the player's move direction\n00:45:25 Moving the player horizontally\n00:47:57 Calculating jump input\n00:51:32 Coding the player's jump\n00:52:28 The scope of variables\n00:54:00 Back to coding calculate_move_velocity\n01:00:19 Preventing the velocity from resetting every frame\n01:03:21 Interrupting the jump\n01:05:32 Renaming variables to clean up our code\n\nThe Enemy\n\n01:10:41 Creating the enemy scene\n01:13:20 Coding the enemy\n01:19:28 Optimizing the enemy with the VisbilityEnabler2D\n01:26:06 Stomping the enemy\n01:30:49 Making the enemy die when stomped\n01:36:04 Adding the player's stomp\n\nCreating a test level\n\n01:43:36 Coding the player's death\n01:45:19 Improving the camera\n01:50:56 Creating our mini level\n01:55:18 Adding a background\n\nDiscord ► https://discord.gg/87NNb3Z\nTwitter ► https://twitter.com/nathangdquest\n\nThis video is licensed under the CC-By 4.0 license: https://creativecommons.org/licenses/by/4.0/\n\nYou can attribute it to \"GDQuest and contributors - https://www.gdquest.com/\"",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/Mc13Z2gboEk/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/Mc13Z2gboEk/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/Mc13Z2gboEk/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    },
+                    "standard": {
+                        "url": "https://i.ytimg.com/vi/Mc13Z2gboEk/sddefault.jpg",
+                        "width": 640,
+                        "height": 480
+                    },
+                    "maxres": {
+                        "url": "https://i.ytimg.com/vi/Mc13Z2gboEk/maxresdefault.jpg",
+                        "width": 1280,
+                        "height": 720
+                    }
+                },
+                "channelTitle": "GDQuest",
+                "tags": [
+                    "godot platformer 2d",
+                    "make your first 2d game",
+                    "godot 2d platformer tutorial",
+                    "godot beginner",
+                    "godot platformer",
+                    "make a video game in godot",
+                    "how to make a 2d game in godot 3.1",
+                    "godot 2d tutorial for beginners",
+                    "godot platformer enemies",
+                    "make a game in godot",
+                    "godot tutorial for beginners",
+                    "godot platformer movement",
+                    "make your first game",
+                    "godot engine getting started",
+                    "godot 3",
+                    "godot 3.1",
+                    "godot game development",
+                    "godot mario tutorial",
+                    "godot engine",
+                    "godot tutorial 2d"
+                ],
+                "categoryId": "27",
+                "liveBroadcastContent": "none",
+                "defaultLanguage": "en",
+                "localized": {
+                    "title": "Make Your First 2D Game with Godot: Player and Enemy (beginner tutorial part 1)",
+                    "description": "Learn to create your own games with Godot in this beginner tutorial series.\n\nGet our best free Godot tutorials and resources: https://gdquest.com/get-started\n\nPart 2: https://youtu.be/6ziIyx60N6I\n\nLINKS\n\nDownloiad the start assets: https://github.com/GDQuest/Your-First-Game-Godot-2d-Platformer/releases/tag/1.1.0\nGDScript beginner tutorial: https://youtu.be/UcdwP1Q2UlU\nLearn Godot with free resources: https://www.gdquest.com/tutorial/godot/learning-paths/beginner/\nGodot step-by-step getting started guide: https://docs.godotengine.org/en/latest/getting_started/step_by_step/intro_to_the_editor_interface.html\n\nThis project is sponsored by Gamblify: https://www.gamblify.com/\n\nCONTENTS\n\n00:00:00 Intro\n00:00:25 Who this course is for\n00:00:59 What you will learn\n00:01:37 Get the extended edition\n\nThe Player\n\n00:02:19 Getting the assets\n00:02:48 Creating the Godot project\n00:04:13 Creating the Player scene\n00:11:46 Setting up the Player scripts\n00:15:17 Coding character movement\n00:15:56 Getting type hints with autocompletion\n00:19:52 Adding gravity\n00:23:44 Limiting the player's speed\n00:27:04 Adding a floor\n00:31:52 Setting up physics layers\n00:36:31 Coding the input\n00:43:13 Calculating the player's move direction\n00:45:25 Moving the player horizontally\n00:47:57 Calculating jump input\n00:51:32 Coding the player's jump\n00:52:28 The scope of variables\n00:54:00 Back to coding calculate_move_velocity\n01:00:19 Preventing the velocity from resetting every frame\n01:03:21 Interrupting the jump\n01:05:32 Renaming variables to clean up our code\n\nThe Enemy\n\n01:10:41 Creating the enemy scene\n01:13:20 Coding the enemy\n01:19:28 Optimizing the enemy with the VisbilityEnabler2D\n01:26:06 Stomping the enemy\n01:30:49 Making the enemy die when stomped\n01:36:04 Adding the player's stomp\n\nCreating a test level\n\n01:43:36 Coding the player's death\n01:45:19 Improving the camera\n01:50:56 Creating our mini level\n01:55:18 Adding a background\n\nDiscord ► https://discord.gg/87NNb3Z\nTwitter ► https://twitter.com/nathangdquest\n\nThis video is licensed under the CC-By 4.0 license: https://creativecommons.org/licenses/by/4.0/\n\nYou can attribute it to \"GDQuest and contributors - https://www.gdquest.com/\""
+                },
+                "defaultAudioLanguage": "en"
+            },
+            "contentDetails": {
+                "duration": "PT1H58M26S",
+                "dimension": "2d",
+                "definition": "hd",
+                "caption": "true",
+                "licensedContent": true,
+                "contentRating": {},
+                "projection": "rectangular"
+            }
+        }
+    ],
+    "pageInfo": {
+        "totalResults": 1,
+        "resultsPerPage": 1
+    }
+}
