@@ -1,6 +1,6 @@
 
 export const Main = () => {
   return (
-    <div>Main</div>
+    <div className="row customStyle"> Main</div>
   )
 }

@@ -2,6 +2,6 @@
 
 export const History = () => {
   return (
-    <div>History</div>
+    <div className="col-md-2  customStyle">History</div>
   )
 }

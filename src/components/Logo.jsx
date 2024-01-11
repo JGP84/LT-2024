@@ -1,6 +1,6 @@
 
 export const Logo = () => {
   return (
-    <div>Logo</div>
+    <div className="col-md-2  customStyle">Logo</div>
   )
 }

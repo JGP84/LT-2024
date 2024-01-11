@@ -1,6 +1,6 @@
 
 export const TaskList = () => {
   return (
-    <div>TaskList</div>
+    <div className="col-md-4  customStyle">TaskList</div>
   )
 }

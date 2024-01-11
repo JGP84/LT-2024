@@ -1,6 +1,6 @@
 
 export const PasteUrl = () => {
   return (
-    <div>PasteUrl</div>
+    <div className="row customStyle"> PasteUrl</div>
   )
 }

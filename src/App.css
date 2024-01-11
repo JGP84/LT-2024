@@ -1,0 +1,13 @@
+.customStyle{
+    background-color: rgb(140, 255, 0);
+    color: rgb(0, 0, 0);
+    text-align: center;
+    font-weight: bold;
+    font-size: larger;
+    border-color: black;
+    border-width: 3px; 
+    border-style: solid;}
+
+.bgGreen{
+    background-color: green;
+}
