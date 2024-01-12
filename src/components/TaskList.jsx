@@ -5,7 +5,7 @@ export const TaskList = () => {
   const { loading, chapters /*data,  durationVideo */ } = useApi();
 
   return (
-    <div className="col-md-4  customStyle">
+    <div className="col-md-3  customStyle">
       {loading ? (
         <>
           <h1>Loading...</h1>
