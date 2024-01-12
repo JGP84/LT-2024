@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
- import { v4 as uuid } from 'uuid';
- import { getChapters } from "../utils";
+import { v4 as uuid } from "uuid";
+import { getChapters } from "../utils";
 
 //const API_KEY = "AIzaSyBLOPd668u0VOleB5v3BLtCanpmj8VMV3s";
 
@@ -9,40 +9,53 @@ import { useState, useEffect } from "react";
 const useApi = () => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
-   const [chapters, setChapters] = useState(null);
-  // const [title, setTitle] = useState(null);
-  // const [channel, setChannel] = useState(null);
-  // const [durationVideo, setDurationVideo] = useState(null);
+  const [chapters, setChapters] = useState(null);
+  const [title, setTitle] = useState(null);
+  const [channel, setChannel] = useState(null);
+  const [durationVideo, setDurationVideo] = useState(null);
+  const [urlThumbnail, setUrlThumbnail] = useState(null);
 
   //const urlYoutube = `https://www.googleapis.com/youtube/v3/videos?part=snippet&part=contentDetails&id=${ID_VIDEO}&key=${API_KEY}`
   const urlMock = "http://localhost:3001/items";
-  const URL = urlMock;
+  
 
   useEffect(() => {
+
+    const URL = urlMock;
+
+    
     const fetchData = async () => {
       try {
         // Verificar si los datos ya están en caché
         const cachedData = localStorage.getItem("cachedData");
         if (cachedData) {
           setData(JSON.parse(cachedData));
-          if (cachedData){ setChapters(getChapters(uuid, JSON.parse(cachedData)))}
+          if (cachedData) {
+            setChapters(getChapters(uuid, JSON.parse(cachedData)));
+            setTitle(JSON.parse(cachedData)[0].snippet.title);
+            setChannel(JSON.parse(cachedData)[0].snippet.channelTitle);
+            setDurationVideo(JSON.parse(cachedData)[0].contentDetails.duration);
+            setUrlThumbnail(
+              JSON.parse(cachedData)[0].snippet.thumbnails.medium.url
+            );
 
-          setLoading(false);
-          
+            setLoading(false);
+          }
         } else {
           // Realizar la solicitud a la API si los datos no están en caché
           const response = await fetch(URL);
           const result = await response.json();
 
           setData(result);
-          if (result){ setChapters(getChapters(uuid, result))}
-          
-          // setTitle(result.items[0].snippet.title);
-          // setChannel(result.items[0].snippet.channelTitle);
-          // setDurationVideo(result.items[0].contentDetails.duration);
-          
-          setLoading(false);
-          
+          if (result) {
+            setChapters(getChapters(uuid, result));
+
+            setTitle(result[0].snippet.title);
+            setChannel(result[0].snippet.channelTitle);
+            setDurationVideo(result[0].contentDetails.duration);
+            setUrlThumbnail(result[0].snippet.thumbnails.medium.url);
+            setLoading(false);
+          }
 
           // Almacenar los datos en caché
           localStorage.setItem("cachedData", JSON.stringify(result));
@@ -54,10 +67,17 @@ const useApi = () => {
     };
 
     fetchData();
-    
   }, []);
 
-  return { loading, data,  chapters , /* title, channel, durationVideo */ };
+  return {
+    loading,
+    data,
+    chapters,
+    title,
+    channel,
+    durationVideo,
+    urlThumbnail,
+  };
 };
 export default useApi;
 
