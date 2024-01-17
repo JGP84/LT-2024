@@ -20,7 +20,7 @@ export const getChapters = (uuid, data) => {
   // Extract timestamps (either 00:00:00, 0:00:00, 00:00 or 0:00)
   if (data) {
 
-    const description = data[0].snippet.description;
+    const description = data.items[0].snippet.description;
     //console.log ( "description", description)
 
     const lines = description.split("\n");

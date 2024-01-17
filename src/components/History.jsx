@@ -1,31 +1,44 @@
-import useApi from "../hooks/useApi";
+import { useState, useEffect } from "react";
+import { useHistory } from "../HistoryContext";
 
 export const History = () => {
+  const [urlThumbnail, seturlThumbnail] = useState([]);
 
-  const { loading, urlThumbnail } = useApi();
+  const { loading, historyData, clearHistory } = useHistory();
+  
 
+  useEffect(() => {
+    // Update urlThumbnail whenever historyData change
+    if (!loading) {
+      seturlThumbnail(historyData[0].urlThumbnail);
+    }
+  }, [historyData, loading]);
+
+  const handleClearHistory = () => {
+    clearHistory();
+  };
 
   return (
     <div className="col-md-2  customStyle text-center">
-    
-    *** History ***
-     
-    {loading ? (
+      *** History ***
+      {loading ? (
         <>
           <h1>Loading...</h1>
         </>
       ) : (
         <>
-        
-      
-     
-          <img className="w-75" src={urlThumbnail} alt="Descripción de la imagen" />
+
+        <button onClick={handleClearHistory}>Clear History</button>
+
+          <img
+            className="w-75"
+            src={urlThumbnail}
+            alt="Descripción de la imagen"
+          />
+
+         
         </>
       )}
-
-
-    
-    
     </div>
-  )
-}
+  );
+};
