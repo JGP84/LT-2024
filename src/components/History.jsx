@@ -1,21 +1,38 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useHistory } from "../HistoryContext";
 
 export const History = () => {
-  const [urlThumbnail, seturlThumbnail] = useState([]);
-
-  const { loading, historyData, clearHistory } = useHistory();
-  
+  const {
+    loading,
+    historyData,
+    setHistoryData,
+    clearHistory,
+    setLoading,
+    setCurrentIdVideo,
+  } = useHistory();
 
   useEffect(() => {
-    // Update urlThumbnail whenever historyData change
-    if (!loading) {
-      seturlThumbnail(historyData[0].urlThumbnail);
+    const cachedData = localStorage.getItem("cachedData");
+    if (cachedData) {
+      setHistoryData(JSON.parse(cachedData));
+      //setLoading(false);
     }
-  }, [historyData, loading]);
+
+    const cachedCurrentIdVideo = localStorage.getItem("currentIdVideo");
+    if (cachedCurrentIdVideo) {
+      setCurrentIdVideo(JSON.parse(cachedCurrentIdVideo));
+      setLoading(false);
+    }
+  }, [setHistoryData, setCurrentIdVideo, setLoading ]);
 
   const handleClearHistory = () => {
     clearHistory();
+  };
+
+  const handleClick = (id) => {
+    
+    setCurrentIdVideo(id);
+    localStorage.setItem("currentIdVideo", JSON.stringify(id));
   };
 
   return (
@@ -27,16 +44,27 @@ export const History = () => {
         </>
       ) : (
         <>
+          <button
+            className="btn btn-outline-danger my-3"
+            onClick={handleClearHistory}
+          >
+            Clear History
+          </button>
 
-        <button onClick={handleClearHistory}>Clear History</button>
+          {historyData.map((item, index) => (
+            <button
+              key={index}
+              className=" mt-3"
+              onClick={() => handleClick(item.id)}
+            >
+              <img 
+              className="w-100" 
+              src={item.urlThumbnail} 
+              alt="Thumbnail" 
+              />
 
-          <img
-            className="w-75"
-            src={urlThumbnail}
-            alt="Descripción de la imagen"
-          />
-
-         
+            </button>
+          ))}
         </>
       )}
     </div>

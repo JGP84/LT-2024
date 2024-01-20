@@ -51,3 +51,14 @@ export const getChapters = (uuid, data) => {
     return chapters;
   }
 };
+
+export const getYoutubeVideoId = ( url )=>{
+  // Expresión regular para extraer el ID del video de una URL de YouTube
+  const regex = /^(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
+  
+  // Intenta hacer coincidir la expresión regular con la URL
+  const match = url.match(regex);
+
+  // Si hay una coincidencia, devuelve el ID del video, de lo contrario, devuelve null
+  return match ? match[1] : null;
+}

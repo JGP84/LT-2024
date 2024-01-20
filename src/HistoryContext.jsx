@@ -8,6 +8,8 @@ export const HistoryProvider = ({ children }) => {
 
   const [historyData, setHistoryData] = useState([]);
 
+  const [ currentIdVideo, setCurrentIdVideo ] = useState(null);
+
 
 
  
@@ -20,10 +22,11 @@ export const HistoryProvider = ({ children }) => {
     setLoading(true)
     setHistoryData([])
     localStorage.removeItem("cachedData")
+    localStorage.removeItem("currentIdVideo")
   };
 
   return (
-    <HistoryContext.Provider value={{ loading, setLoading ,historyData, addToHistory, clearHistory }}>
+    <HistoryContext.Provider value={{ loading, setLoading ,historyData, setHistoryData, addToHistory, clearHistory, currentIdVideo, setCurrentIdVideo }}>
       {children}
     </HistoryContext.Provider>
   );

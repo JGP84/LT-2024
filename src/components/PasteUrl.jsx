@@ -1,31 +1,50 @@
 import { useState } from "react";
 import useApi from "../hooks/useApi";
 import { useHistory } from "../HistoryContext";
+import { getYoutubeVideoId } from "../utils"
 
 export const PasteUrl = () => {
 
-  const [enteredId, setEnteredId] = useState("");
+  
 
-  const { title, channel, urlThumbnail, durationVideo, chapters } = useApi(enteredId);
+  const [youtubeUrl, setYoutubeUrl] = useState("");
 
-  const { setLoading, addToHistory } = useHistory();
+ 
+
+  const { title, channel, urlThumbnail, durationVideo, chapters } = useApi(getYoutubeVideoId(youtubeUrl));
+
+  const { setLoading, addToHistory, historyData, currentIdVideo,setCurrentIdVideo } = useHistory();
 
   const handleClick = () => {
-    addToHistory({
+
+  const videoId = getYoutubeVideoId(youtubeUrl)
+    const videoAdd = {
       title: title,
-      id: enteredId,
+      id: videoId,
       channel: channel,
       urlThumbnail: urlThumbnail,
       durationVideo: durationVideo,
       chapters: chapters,
-    });
+    }
+
+    console.log("videoAdd", videoAdd)
+
+    addToHistory( videoAdd );
+    console.log("currentIdVideo before", currentIdVideo)
+    setCurrentIdVideo(videoId)
+    console.log("currentIdVideo after", currentIdVideo)
 
     setLoading(false);
-    setEnteredId("");
+    setYoutubeUrl("");
+
+    // Almacenar los datos en caché
+    localStorage.setItem("cachedData", JSON.stringify([...historyData, videoAdd]));
+    localStorage.setItem("currentIdVideo", JSON.stringify(videoId));
   };
+  
 
   const handleChange = (e) => {
-    setEnteredId(e.target.value);
+    setYoutubeUrl(e.target.value);
   };
 
   return (
@@ -36,7 +55,7 @@ export const PasteUrl = () => {
           type="text"
           className="form-control"
           placeholder="Paste your url"
-          value={enteredId}
+          value={youtubeUrl}
           onChange={handleChange}
         />
         <button className="btn btn-primary" type="button" onClick={handleClick}>
@@ -46,3 +65,4 @@ export const PasteUrl = () => {
     </div>
   );
 };
+

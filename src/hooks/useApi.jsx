@@ -2,16 +2,8 @@ import { useState, useEffect } from "react";
 import { v4 as uuid } from "uuid";
 import { getChapters } from "../utils";
 
-
-
-
-
-
 const useApi = (ID_VIDEO) => {
-
-
   const API_KEY = "AIzaSyBLOPd668u0VOleB5v3BLtCanpmj8VMV3s";
-  //const ID_VIDEO = "Mc13Z2gboEk";
 
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
@@ -21,51 +13,53 @@ const useApi = (ID_VIDEO) => {
   const [durationVideo, setDurationVideo] = useState(null);
   const [urlThumbnail, setUrlThumbnail] = useState(null);
 
-  const urlYoutube = `https://www.googleapis.com/youtube/v3/videos?part=snippet&part=contentDetails&id=${ID_VIDEO}&key=${API_KEY}`
-  //const urlMock = "http://localhost:3001/items";
-  
+  const urlYoutube = `https://www.googleapis.com/youtube/v3/videos?part=snippet&part=contentDetails&id=${ID_VIDEO}&key=${API_KEY}`;
 
   useEffect(() => {
-
-    const URL = urlYoutube;
-
-    
     const fetchData = async () => {
       try {
-        // Verificar si los datos ya están en caché
         const cachedData = localStorage.getItem("cachedData");
+
         if (cachedData) {
-          
-            setData(JSON.parse(cachedData));
-            setChapters(getChapters(uuid, JSON.parse(cachedData)))
-            setTitle(JSON.parse(cachedData).items[0].snippet.title);
-            setChannel(JSON.parse(cachedData).items[0].snippet.channelTitle);
-            setDurationVideo(JSON.parse(cachedData).items[0].contentDetails.duration);
-            setUrlThumbnail(
-              JSON.parse(cachedData).items[0].snippet.thumbnails.medium.url
-            );
+          const cachedDataArray = JSON.parse(cachedData);
+
+          if (
+            Array.isArray(cachedDataArray) &&
+            cachedDataArray.length > 0 &&
+            cachedDataArray[0].id === ID_VIDEO
+          ) {
+            setData(cachedDataArray);
+            setChapters(cachedDataArray[0].chapters);
+            setTitle(cachedDataArray[0].title);
+            setChannel(cachedDataArray[0].channel);
+            setDurationVideo(cachedDataArray[0].durationVideo);
+            setUrlThumbnail(cachedDataArray[0].urlThumbnail);
 
             setLoading(false);
-         
-        } else {
-          // Realizar la solicitud a la API si los datos no están en caché
-          const response = await fetch(URL);
-          const result = await response.json();
 
-          setData(result);
-          if (result) {
-            setChapters(getChapters(uuid, result));
-
-            setTitle(result.items[0].snippet.title);
-            setChannel(result.items[0].snippet.channelTitle);
-            setDurationVideo(result.items[0].contentDetails.duration);
-            setUrlThumbnail(result.items[0].snippet.thumbnails.medium.url);
-            setLoading(false);
+            console.log("Data retrieved from the cache");
+            return;
           }
-
-          // Almacenar los datos en caché
-          localStorage.setItem("cachedData", JSON.stringify(result));
         }
+
+        const response = await fetch(urlYoutube);
+        const result = await response.json();
+
+        setData(result);
+        if (result) {
+          setChapters(getChapters(uuid, result));
+
+          setTitle(result.items[0].snippet.title);
+          setChannel(result.items[0].snippet.channelTitle);
+          setDurationVideo(result.items[0].contentDetails.duration);
+          setUrlThumbnail(result.items[0].snippet.thumbnails.medium.url);
+          setLoading(false);
+        }
+
+        console.log("API call made");
+
+        // Store the data in the cache
+        //localStorage.setItem("cachedData", JSON.stringify([...result.items]));
       } catch (error) {
         console.error("Error fetching data:", error);
         setLoading(false);
@@ -73,7 +67,7 @@ const useApi = (ID_VIDEO) => {
     };
 
     fetchData();
-  }, [urlYoutube]);
+  }, [ID_VIDEO, urlYoutube]);
 
   return {
     loading,
@@ -86,8 +80,5 @@ const useApi = (ID_VIDEO) => {
     urlThumbnail,
   };
 };
+
 export default useApi;
-
-// videos?part=snippet&part=contentDetails&id=Mc13Z2gboEk
-
-// https://www.googleapis.com/youtube/v3/videos?part=snippet&part=contentDetails&id=Mc13Z2gboEk&key=AIzaSyBLOPd668u0VOleB5v3BLtCanpmj8VMV3s
