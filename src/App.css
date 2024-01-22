@@ -1,13 +1,23 @@
-.customStyle{
-    background-color: rgb(181, 209, 41);
-    color: rgb(0, 0, 0);
-    /* text-align: center; */
-    font-weight: bold;
-    font-size: larger;
-    border-color: black;
-    border-width: 3px; 
-    border-style: solid;}
+.customStyle {
+  background-color: rgb(181, 209, 41);
+  color: rgb(0, 0, 0);
+  /* text-align: center; */
+  font-weight: bold;
+  font-size: larger;
+  border-color: black;
+  border-width: 3px;
+  border-style: solid;
+}
 
-.bgGreen{
-    background-color: green;
+.bgGreen {
+  background-color: green;
+}
+.checked-label-style {
+  opacity: 40%;
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+}
+
+.checked-input-style {
+  opacity: 40%;
 }
