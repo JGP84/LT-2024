@@ -62,3 +62,19 @@ export const getYoutubeVideoId = ( url )=>{
   // Si hay una coincidencia, devuelve el ID del video, de lo contrario, devuelve null
   return match ? match[1] : null;
 }
+
+export const addTimeEndProperty = (arrayOfObjects) => {
+  // Check if the array has at least two elements
+  if (arrayOfObjects.length < 2) {
+    console.error("Array must have at least two elements");
+    return arrayOfObjects;
+  }
+
+  // Iterate over the array and add the "timeEnd" property
+  for (let i = 0; i < arrayOfObjects.length - 1; i++) {
+    // Assign the value of "timeSeconds" from the next object as "timeEnd"
+    arrayOfObjects[i].timeEnd = arrayOfObjects[i + 1].timeSeconds;
+  }
+
+  return arrayOfObjects;
+};

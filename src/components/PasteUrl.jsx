@@ -1,7 +1,7 @@
 import { useState } from "react";
 import useApi from "../hooks/useApi";
 import { useHistory } from "../HistoryContext";
-import { getYoutubeVideoId } from "../utils";
+import { getYoutubeVideoId, addTimeEndProperty } from "../utils";
 
 export const PasteUrl = () => {
   const [youtubeUrl, setYoutubeUrl] = useState("");
@@ -29,7 +29,7 @@ export const PasteUrl = () => {
         channel: channel,
         urlThumbnail: urlThumbnail,
         durationVideo: durationVideo,
-        chapters: chapters,
+        chapters: addTimeEndProperty(chapters),
       };
 
       console.log("videoAdd", videoAdd);

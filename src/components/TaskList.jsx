@@ -96,7 +96,7 @@ export const TaskList = () => {
                 id={task.id}
               />
               <a
-                href={`https://www.youtube-nocookie.com/embed/${currentIdVideo}?start=${task.timeSeconds}&end=4&rel=0`}
+                href={`https://www.youtube-nocookie.com/embed/${currentIdVideo}?start=${task.timeSeconds}&end=${task.timeEnd}&rel=0`}
                 target="myiframe"
                 id={`anchor${task.id}$`}
               >
