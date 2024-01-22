@@ -33,12 +33,12 @@ export const Main = () => {
         </>
       ) : (
         <>
-          <h1>{ title }</h1>
-          <h2>{ channel }</h2>
-         
-          <iframe name="myiframe" id="myiframe" width="600" height="450" frameBorder="0" allowFullScreen></iframe>
-
+          <h2>{ title }</h2>
           
+         
+          <iframe className="img-container" name="myiframe" id="myiframe" width="600" height="450" frameBorder="0" allowFullScreen></iframe>
+
+          <h3>{ channel }</h3>
         </>
       )}
     </div>

@@ -9,6 +9,7 @@ export const History = () => {
     clearHistory,
     setLoading,
     setCurrentIdVideo,
+    setSimulateClick
   } = useHistory();
 
   useEffect(() => {
@@ -33,6 +34,8 @@ export const History = () => {
     
     setCurrentIdVideo(id);
     localStorage.setItem("currentIdVideo", JSON.stringify(id));
+
+    setSimulateClick(true);
   };
 
   return (
@@ -54,11 +57,11 @@ export const History = () => {
           {historyData.map((item, index) => (
             <button
               key={index}
-              className=" mt-3"
+              className=" mt-3 img-container"
               onClick={() => handleClick(item.id)}
             >
               <img 
-              className="w-100" 
+              className="w-100 " 
               src={item.urlThumbnail} 
               alt="Thumbnail" 
               />

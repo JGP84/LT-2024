@@ -1,47 +1,55 @@
 import { useState } from "react";
 import useApi from "../hooks/useApi";
 import { useHistory } from "../HistoryContext";
-import { getYoutubeVideoId } from "../utils"
+import { getYoutubeVideoId } from "../utils";
 
 export const PasteUrl = () => {
-
-  
-
   const [youtubeUrl, setYoutubeUrl] = useState("");
 
- 
+  const { title, channel, urlThumbnail, durationVideo, chapters } = useApi(
+    getYoutubeVideoId(youtubeUrl)
+  );
 
-  const { title, channel, urlThumbnail, durationVideo, chapters } = useApi(getYoutubeVideoId(youtubeUrl));
-
-  const { setLoading, addToHistory, historyData, currentIdVideo,setCurrentIdVideo } = useHistory();
+  const {
+    setLoading,
+    addToHistory,
+    historyData,
+    currentIdVideo,
+    setCurrentIdVideo,
+  } = useHistory();
 
   const handleClick = () => {
+    if (!youtubeUrl.trim()) {
+      return;
+    } else {
+      const videoId = getYoutubeVideoId(youtubeUrl);
+      const videoAdd = {
+        title: title,
+        id: videoId,
+        channel: channel,
+        urlThumbnail: urlThumbnail,
+        durationVideo: durationVideo,
+        chapters: chapters,
+      };
 
-  const videoId = getYoutubeVideoId(youtubeUrl)
-    const videoAdd = {
-      title: title,
-      id: videoId,
-      channel: channel,
-      urlThumbnail: urlThumbnail,
-      durationVideo: durationVideo,
-      chapters: chapters,
+      console.log("videoAdd", videoAdd);
+
+      addToHistory(videoAdd);
+      console.log("currentIdVideo before", currentIdVideo);
+      setCurrentIdVideo(videoId);
+      console.log("currentIdVideo after", currentIdVideo);
+
+      setLoading(false);
+      setYoutubeUrl("");
+
+      // Almacenar los datos en caché
+      localStorage.setItem(
+        "cachedData",
+        JSON.stringify([...historyData, videoAdd])
+      );
+      localStorage.setItem("currentIdVideo", JSON.stringify(videoId));
     }
-
-    console.log("videoAdd", videoAdd)
-
-    addToHistory( videoAdd );
-    console.log("currentIdVideo before", currentIdVideo)
-    setCurrentIdVideo(videoId)
-    console.log("currentIdVideo after", currentIdVideo)
-
-    setLoading(false);
-    setYoutubeUrl("");
-
-    // Almacenar los datos en caché
-    localStorage.setItem("cachedData", JSON.stringify([...historyData, videoAdd]));
-    localStorage.setItem("currentIdVideo", JSON.stringify(videoId));
   };
-  
 
   const handleChange = (e) => {
     setYoutubeUrl(e.target.value);
@@ -65,4 +73,3 @@ export const PasteUrl = () => {
     </div>
   );
 };
-

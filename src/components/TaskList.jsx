@@ -6,6 +6,8 @@ export const TaskList = () => {
 
   const { loading, historyData, setHistoryData, currentIdVideo } = useHistory();
 
+  const [selectedTask, setSelectedTask] = useState(null);
+
   useEffect(() => {
     // Update tasks whenever chapters change
     if (!loading && Array.isArray(historyData) && historyData.length > 0) {
@@ -51,6 +53,24 @@ export const TaskList = () => {
     localStorage.setItem("cachedData", JSON.stringify(updatedHistoryData));
   };
 
+  useEffect(() => {
+    // Simulate a click on the label of the first unchecked task (checked: false)
+    const firstUncheckedTask = tasks.find((task) => !task.checked);
+
+    if (firstUncheckedTask) {
+      const labelElement = document.getElementById(
+        `label${firstUncheckedTask.id}`
+      );
+      if (labelElement) {
+        labelElement.click();
+      }
+    }
+  }, [tasks]); // Will run whenever the list of tasks changes
+
+  const handleTaskClick = (taskId) => {
+    setSelectedTask(taskId);
+  };
+
   return (
     <div className="col-md-3  customStyle">
       {loading ? (
@@ -80,9 +100,18 @@ export const TaskList = () => {
                 target="myiframe"
                 id={`anchor${task.id}$`}
               >
-                <label className={task.checked ? "checked-label-style" : ""}>
-                  {task.title}
-                </label>
+                <div
+                  className={selectedTask === task.id ? "task-container" : ""}
+                  id={`div${task.id}`}
+                >
+                  <label
+                    className={task.checked ? "checked-label-style" : ""}
+                    id={`label${task.id}`}
+                    onClick={() => handleTaskClick(task.id)}
+                  >
+                    {task.title}
+                  </label>
+                </div>
               </a>
             </div>
           ))}

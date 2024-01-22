@@ -1,12 +1,26 @@
 .customStyle {
-  background-color: rgb(181, 209, 41);
-  color: rgb(0, 0, 0);
-  /* text-align: center; */
+  background-color: rgb(250, 225, 250);
   font-weight: bold;
   font-size: larger;
   border-color: black;
-  border-width: 3px;
+  border-width: 1px;
   border-style: solid;
+}
+
+.btn-primary {
+  background-color: purple;
+  border-color: purple;
+  font-size: large;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.btn-primary:hover {
+  background-color: purple;
+  border-color: purple;
+  font-size: large;
+  font-weight: bold;
+  padding: 10px;
 }
 
 .bgGreen {
@@ -20,4 +34,23 @@
 
 .checked-input-style {
   opacity: 40%;
+}
+.clicked-label-style {
+  color: white;
+  background-color: purple;
+}
+
+.task-container {
+  display: inline-block;
+  color: white;
+
+  border-radius: 5px;
+  background-color: purple;
+  padding: 10px;
+}
+.img-container {
+  border: none;
+  border-radius: 5px;
+  background-color: purple;
+  padding: 5px;
 }

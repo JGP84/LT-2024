@@ -10,6 +10,8 @@ export const HistoryProvider = ({ children }) => {
 
   const [ currentIdVideo, setCurrentIdVideo ] = useState(null);
 
+  const [simulateClick, setSimulateClick] = useState(false);
+
 
 
  
@@ -26,7 +28,7 @@ export const HistoryProvider = ({ children }) => {
   };
 
   return (
-    <HistoryContext.Provider value={{ loading, setLoading ,historyData, setHistoryData, addToHistory, clearHistory, currentIdVideo, setCurrentIdVideo }}>
+    <HistoryContext.Provider value={{ loading, setLoading ,historyData, setHistoryData, addToHistory, clearHistory, currentIdVideo, setCurrentIdVideo, simulateClick, setSimulateClick }}>
       {children}
     </HistoryContext.Provider>
   );
