@@ -9,7 +9,7 @@ export const History = () => {
     clearHistory,
     setLoading,
     setCurrentIdVideo,
-    setSimulateClick
+    setSimulateClick,
   } = useHistory();
 
   useEffect(() => {
@@ -24,14 +24,13 @@ export const History = () => {
       setCurrentIdVideo(JSON.parse(cachedCurrentIdVideo));
       setLoading(false);
     }
-  }, [setHistoryData, setCurrentIdVideo, setLoading ]);
+  }, [setHistoryData, setCurrentIdVideo, setLoading]);
 
   const handleClearHistory = () => {
     clearHistory();
   };
 
   const handleClick = (id) => {
-    
     setCurrentIdVideo(id);
     localStorage.setItem("currentIdVideo", JSON.stringify(id));
 
@@ -40,7 +39,6 @@ export const History = () => {
 
   return (
     <div className="col-md-2  customStyle text-center">
-      *** History ***
       {loading ? (
         <>
           <h1>Loading...</h1>
@@ -60,12 +58,7 @@ export const History = () => {
               className=" mt-3 img-container"
               onClick={() => handleClick(item.id)}
             >
-              <img 
-              className="w-100 " 
-              src={item.urlThumbnail} 
-              alt="Thumbnail" 
-              />
-
+              <img className="w-100 " src={item.urlThumbnail} alt="Thumbnail" />
             </button>
           ))}
         </>

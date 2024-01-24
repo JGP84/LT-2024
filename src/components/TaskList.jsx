@@ -79,7 +79,6 @@ export const TaskList = () => {
         </>
       ) : (
         <>
-          *** TaskList ***
           <h3 className="mb-3">Learning Tasks:</h3>
           {tasks.map((task) => (
             <div className="form-check" key={task.id}>
@@ -95,7 +94,7 @@ export const TaskList = () => {
                 onChange={() => handleCheckboxChange(task.id)}
                 id={task.id}
               />
-              
+
               <a
                 href={`https://www.youtube-nocookie.com/embed/${currentIdVideo}?start=${task.timeSeconds}&end=${task.timeEnd}&rel=0`}
                 target="myiframe"
