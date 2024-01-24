@@ -72,13 +72,14 @@ export const TaskList = () => {
   };
 
   return (
-    <div className="col-md-3  customStyle">
+    <div className="col-md-3  customStyle p-3 border-start border-black">
       {loading ? (
         <>
           <h1>Loading...</h1>
         </>
       ) : (
         <>
+        
           <h3 className="mb-3">Learning Tasks:</h3>
           {tasks.map((task) => (
             <div className="form-check" key={task.id}>

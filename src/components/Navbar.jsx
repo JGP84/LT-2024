@@ -1,7 +1,7 @@
 
 export const Navbar = () => {
   return (
-    <div className="col-md-10  customStyle">
+    <div className="col-md-10  customStyle p-3">
    
     </div>
   )

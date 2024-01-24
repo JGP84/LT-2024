@@ -56,8 +56,8 @@ export const PasteUrl = () => {
   };
 
   return (
-    <div className="row customStyle">
-      <div className="input-group m-3 px-5">
+    <div className="row customStyle p-3">
+      <div className="input-group">
         <input
           type="text"
           className="form-control"

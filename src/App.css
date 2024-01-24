@@ -1,17 +1,30 @@
-.customStyle {
+body {
+  background-color: grey;
+}
+h1 {
+  color: purple;
+  font-weight: bold;
+}
+/* .customStyle {
   background-color: rgb(250, 225, 250);
   font-weight: bold;
   font-size: larger;
   border-color: black;
   border-width: 1px;
   border-style: solid;
+} */
+.container-app {
+  background-color: rgb(250, 225, 250);
+  border-radius: 10px;
+  padding: 3rem;
+  margin-top: 2rem;
 }
 
 .btn-primary {
   background-color: purple;
   border-color: purple;
   font-size: large;
-  font-weight: bold;
+  
   padding: 10px;
 }
 
@@ -19,13 +32,14 @@
   background-color: purple;
   border-color: purple;
   font-size: large;
-  font-weight: bold;
+  
   padding: 10px;
 }
 
-.bgGreen {
-  background-color: green;
+.border-radius {
+ border-radius: 10px;
 }
+
 .checked-label-style {
   opacity: 40%;
   text-decoration: line-through;
@@ -53,4 +67,10 @@
   border-radius: 5px;
   background-color: purple;
   padding: 5px;
+}
+
+.vertical-line {
+  border-left: 2px solid #000; /* Puedes ajustar el grosor y el color según tus preferencias */
+  height: 200px; /* Puedes ajustar la altura según tus necesidades */
+  /* margin: 0 20px; */ /* Puedes ajustar el margen según tus necesidades */
 }

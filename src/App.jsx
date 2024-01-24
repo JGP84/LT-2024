@@ -9,7 +9,7 @@ import { TaskList } from "./components/TaskList";
 function App() {
   return (
     <>
-      <div className="container-md mt-5 bgGreen">
+      <div className="container-md container-app">
         <div className="row">
           <Logo />
           <Navbar />

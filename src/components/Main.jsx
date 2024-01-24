@@ -22,14 +22,14 @@ export const Main = () => {
   }, [loading, historyData, currentIdVideo]);
 
   return (
-    <div className="row customStyle">
+    <div className="row customStyle p-3">
       {loading ? (
         <>
           <h1>Loading...</h1>
         </>
       ) : (
         <>
-          <h2>{title}</h2>
+          <h2 className="mb-3">{title}</h2>
 
           <iframe
             className="img-container"
@@ -41,7 +41,7 @@ export const Main = () => {
             allowFullScreen
           ></iframe>
 
-          <h3>{channel}</h3>
+          <h3 className="mt-3">{channel}</h3>
         </>
       )}
     </div>

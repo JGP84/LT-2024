@@ -38,7 +38,7 @@ export const History = () => {
   };
 
   return (
-    <div className="col-md-2  customStyle text-center">
+    <div className="col-md-2  customStyle text-center p-3 border-end border-black">
       {loading ? (
         <>
           <h1>Loading...</h1>
@@ -46,7 +46,7 @@ export const History = () => {
       ) : (
         <>
           <button
-            className="btn btn-outline-danger my-3"
+            className="btn btn-outline-danger"
             onClick={handleClearHistory}
           >
             Clear History
