@@ -1,30 +1,24 @@
 export const getChapters = (uuid, data) => {
   function timeToSeconds(time) {
-    const parts = time.split(":");
-    if (parts.length !== 3) {
+    const parts = time.split(":").map((part) => parseInt(part, 10));
+
+    if (parts.some((part) => isNaN(part))) {
       throw new Error("Incorrect time format. It should be HH:MM:SS");
     }
 
-    const hours = parseInt(parts[0], 10);
-    const minutes = parseInt(parts[1], 10);
-    const seconds = parseInt(parts[2], 10);
+    const totalSeconds =
+      parts.length === 3
+        ? parts[0] * 3600 + parts[1] * 60 + parts[2]
+        : parts[0] * 60 + parts[1];
 
-    if (isNaN(hours) || isNaN(minutes) || isNaN(seconds)) {
-      throw new Error("Incorrect time format. It should be HH:MM:SS");
-    }
-
-    const totalSeconds = hours * 3600 + minutes * 60 + seconds;
     return totalSeconds;
   }
 
   // Extract timestamps (either 00:00:00, 0:00:00, 00:00 or 0:00)
   if (data) {
-
     const description = data.items[0].snippet.description;
-    //console.log ( "description", description)
-
     const lines = description.split("\n");
-    const regex = /(\d{0,2}:?\d{1,2}:\d{2})/g;
+    const regex = /(\d{0,2}:?\d{1,2}:\d{2}|\d{1,2}:?\d{2})/g;
     const chapters = [];
 
     for (const line of lines) {
@@ -51,6 +45,7 @@ export const getChapters = (uuid, data) => {
     return chapters;
   }
 };
+
 
 export const getYoutubeVideoId = ( url )=>{
   // Expresión regular para extraer el ID del video de una URL de YouTube
