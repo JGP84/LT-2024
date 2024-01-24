@@ -25,7 +25,7 @@ export const Main = () => {
     <div className="row customStyle p-3">
       {loading ? (
         <>
-          <h1>Loading...</h1>
+          <h5>Loading...</h5>
         </>
       ) : (
         <>

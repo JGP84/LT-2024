@@ -41,7 +41,7 @@ export const History = () => {
     <div className="col-md-2  customStyle text-center p-3 border-end border-black">
       {loading ? (
         <>
-          <h1>Loading...</h1>
+          <h5>Loading...</h5>
         </>
       ) : (
         <>
