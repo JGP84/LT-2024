@@ -1,5 +1,5 @@
 import "./App.css";
-import { History } from "./components/History";
+import { History } from "./components/history/History";
 import { Logo } from "./components/Logo";
 import { Main } from "./components/Main";
 import { Navbar } from "./components/Navbar";

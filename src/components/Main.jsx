@@ -21,9 +21,38 @@ export const Main = () => {
     }
   }, [loading, historyData, currentIdVideo]);
 
+  const finalSpaceCharacters = [
+    {
+      id: "gary",
+      name: "Gary Goodspeed",
+      thumb: "/images/gary.png",
+    },
+    {
+      id: "cato",
+      name: "Little Cato",
+      thumb: "/images/cato.png",
+    },
+    {
+      id: "kvn",
+      name: "KVN",
+      thumb: "/images/kvn.png",
+    },
+    {
+      id: "mooncake",
+      name: "Mooncake",
+      thumb: "/images/mooncake.png",
+    },
+    {
+      id: "quinn",
+      name: "Quinn Ergon",
+      thumb: "/images/quinn.png",
+    },
+  ];
+
   return (
-    <div className="row customStyle p-3">
-      {loading ? (
+    <>
+      <div className="row customStyle p-3">
+        {loading ? (
         <>
           <h5>Loading...</h5>
         </>
@@ -44,6 +73,9 @@ export const Main = () => {
           <h3 className="mt-3">{channel}</h3>
         </>
       )}
-    </div>
+      </div>
+
+      
+    </>
   );
 };

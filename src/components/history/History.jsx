@@ -1,5 +1,7 @@
+// History.js
 import { useEffect } from "react";
-import { useHistory } from "../HistoryContext";
+import { useHistory } from "../../HistoryContext";
+import DraggableList from "./draggableList/DraggableList";
 
 export const History = () => {
   const {
@@ -9,14 +11,13 @@ export const History = () => {
     clearHistory,
     setLoading,
     setCurrentIdVideo,
-    setSimulateClick,
   } = useHistory();
 
   useEffect(() => {
+    // Load data from localStorage on component mount
     const cachedData = localStorage.getItem("cachedData");
     if (cachedData) {
       setHistoryData(JSON.parse(cachedData));
-      //setLoading(false);
     }
 
     const cachedCurrentIdVideo = localStorage.getItem("currentIdVideo");
@@ -30,11 +31,13 @@ export const History = () => {
     clearHistory();
   };
 
-  const handleClick = (id) => {
-    setCurrentIdVideo(id);
-    localStorage.setItem("currentIdVideo", JSON.stringify(id));
+  const handleRemoveItem = (id) => {
+    // Remove the item with the specified id from historyData
+    const updatedData = historyData.filter((item) => item.id !== id);
+    setHistoryData(updatedData);
 
-    setSimulateClick(true);
+    // Save the updated data to localStorage
+    localStorage.setItem("cachedData", JSON.stringify(updatedData));
   };
 
   return (
@@ -46,21 +49,13 @@ export const History = () => {
       ) : (
         <>
           <button
-            className="btn btn-outline-danger"
+            className="btn btn-outline-danger mb-4"
             onClick={handleClearHistory}
           >
             Clear History
           </button>
 
-          {historyData.map((item, index) => (
-            <button
-              key={index}
-              className=" mt-3 img-container"
-              onClick={() => handleClick(item.id)}
-            >
-              <img className="w-100 " src={item.urlThumbnail} alt="Thumbnail" />
-            </button>
-          ))}
+          <DraggableList items={historyData} onRemoveItem={handleRemoveItem} />
         </>
       )}
     </div>
