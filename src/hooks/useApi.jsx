@@ -2,8 +2,11 @@ import { useState, useEffect } from "react";
 import { v4 as uuid } from "uuid";
 import { getChapters } from "../utils";
 
+
 const useApi = (ID_VIDEO) => {
-  const API_KEY = "AIzaSyBLOPd668u0VOleB5v3BLtCanpmj8VMV3s";
+  const apiKey = import.meta.env.VITE_API_KEY;
+
+  console.log("VITE_API_KEY", apiKey)
 
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
@@ -13,7 +16,7 @@ const useApi = (ID_VIDEO) => {
   const [durationVideo, setDurationVideo] = useState(null);
   const [urlThumbnail, setUrlThumbnail] = useState(null);
 
-  const urlYoutube = `https://www.googleapis.com/youtube/v3/videos?part=snippet&part=contentDetails&id=${ID_VIDEO}&key=${API_KEY}`;
+  const urlYoutube = `https://www.googleapis.com/youtube/v3/videos?part=snippet&part=contentDetails&id=${ID_VIDEO}&key=${apiKey}`;
 
   useEffect(() => {
     const fetchData = async () => {

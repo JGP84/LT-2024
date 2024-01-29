@@ -75,7 +75,7 @@ export const TaskList = () => {
     <div className="col-md-3  customStyle p-3 border-start border-black">
       {loading ? (
         <>
-          <h5>Loading...</h5>
+          {/* <h5>Loading...</h5> */}
         </>
       ) : (
         <>

@@ -4,6 +4,7 @@ import App from "./App.jsx";
 import "./index.css";
 import { HistoryProvider } from "./HistoryContext.jsx";
 
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <HistoryProvider>

@@ -54,7 +54,8 @@ export const Main = () => {
       <div className="row customStyle p-3">
         {loading ? (
         <>
-          <h5>Loading...</h5>
+          {/* <h5>Loading...</h5> */}
+          <h5>Please, paste a youtube url for create a learning list.</h5> 
         </>
       ) : (
         <>
