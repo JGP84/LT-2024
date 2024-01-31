@@ -4,7 +4,7 @@ import { getChapters } from "../utils";
 
 
 const useApi = (ID_VIDEO) => {
-  
+
   const apiKey = import.meta.env.VITE_API_KEY;
 
   const [loading, setLoading] = useState(true);
@@ -60,8 +60,7 @@ const useApi = (ID_VIDEO) => {
 
         console.log("API call made");
 
-        // Store the data in the cache
-        //localStorage.setItem("cachedData", JSON.stringify([...result.items]));
+        
       } catch (error) {
         console.error("Error fetching data:", error);
         setLoading(false);
