@@ -4,9 +4,8 @@ import { getChapters } from "../utils";
 
 
 const useApi = (ID_VIDEO) => {
+  
   const apiKey = import.meta.env.VITE_API_KEY;
-
-  console.log("VITE_API_KEY", apiKey)
 
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
