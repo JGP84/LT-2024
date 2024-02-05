@@ -65,7 +65,7 @@ export const TaskList = () => {
         labelElement.click();
       }
     }
-  }, [tasks]); // Will run whenever the list of tasks changes
+  }, [tasks]); 
 
   const handleTaskClick = (taskId) => {
     setSelectedTask(taskId);
