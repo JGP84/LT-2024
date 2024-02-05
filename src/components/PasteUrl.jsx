@@ -42,7 +42,6 @@ export const PasteUrl = () => {
       setLoading(false);
       setYoutubeUrl("");
 
-      // Almacenar los datos en caché
       localStorage.setItem(
         "cachedData",
         JSON.stringify([...historyData, videoAdd])
