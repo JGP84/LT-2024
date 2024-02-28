@@ -14,10 +14,14 @@ export const TaskList = () => {
       const indexCurrent = historyData.findIndex(
         (video) => video.id === currentIdVideo
       );
-      const tasksCurrentVideo = historyData[indexCurrent].chapters;
-      setTasks(tasksCurrentVideo);
+      if (indexCurrent !== -1 && historyData[indexCurrent].chapters) {
+        const tasksCurrentVideo = historyData[indexCurrent].chapters;
+        setTasks(tasksCurrentVideo);
+      } else {
+        setTasks([]); // Reset tasks if chapters are not available
+      }
     }
-  }, [loading, historyData, tasks, currentIdVideo]);
+  }, [loading, historyData, currentIdVideo]);
 
   const handleCheckboxChange = (taskId) => {
     const updatedHistoryData = [...historyData]; // Create a copy of the array

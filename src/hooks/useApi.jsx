@@ -2,9 +2,7 @@ import { useState, useEffect } from "react";
 import { v4 as uuid } from "uuid";
 import { getChapters } from "../utils";
 
-
 const useApi = (ID_VIDEO) => {
-
   const apiKey = import.meta.env.VITE_API_KEY;
 
   const [loading, setLoading] = useState(true);
@@ -14,8 +12,6 @@ const useApi = (ID_VIDEO) => {
   const [channel, setChannel] = useState(null);
   const [durationVideo, setDurationVideo] = useState(null);
   const [urlThumbnail, setUrlThumbnail] = useState(null);
-
-  const urlYoutube = `https://www.googleapis.com/youtube/v3/videos?part=snippet&part=contentDetails&id=${ID_VIDEO}&key=${apiKey}`;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -44,13 +40,13 @@ const useApi = (ID_VIDEO) => {
           }
         }
 
+        const urlYoutube = `https://www.googleapis.com/youtube/v3/videos?part=snippet&part=contentDetails&id=${ID_VIDEO}&key=${apiKey}`;
         const response = await fetch(urlYoutube);
         const result = await response.json();
 
-        setData(result);
-        if (result) {
+        if (result && result.items && result.items[0]) {
+          setData(result);
           setChapters(getChapters(uuid, result));
-
           setTitle(result.items[0].snippet.title);
           setChannel(result.items[0].snippet.channelTitle);
           setDurationVideo(result.items[0].contentDetails.duration);
@@ -59,8 +55,6 @@ const useApi = (ID_VIDEO) => {
         }
 
         console.log("API call made");
-
-        
       } catch (error) {
         console.error("Error fetching data:", error);
         setLoading(false);
@@ -68,7 +62,7 @@ const useApi = (ID_VIDEO) => {
     };
 
     fetchData();
-  }, [ID_VIDEO, urlYoutube]);
+  }, [ID_VIDEO, apiKey]);
 
   return {
     loading,

@@ -99,7 +99,6 @@ DraggableList.propTypes = {
       urlThumbnail: PropTypes.string.isRequired,
     })
   ).isRequired,
-  onAddNewItem: PropTypes.func.isRequired,
   onRemoveItem: PropTypes.func.isRequired,
 };
 

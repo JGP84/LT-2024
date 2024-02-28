@@ -5,14 +5,7 @@ h1 {
   color: purple;
   font-weight: bold;
 }
-/* .customStyle {
-  background-color: rgb(250, 225, 250);
-  font-weight: bold;
-  font-size: larger;
-  border-color: black;
-  border-width: 1px;
-  border-style: solid;
-} */
+
 .container-app {
   background-color: rgb(250, 225, 250);
   border-radius: 10px;
