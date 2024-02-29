@@ -14,30 +14,23 @@ const useApi = (ID_VIDEO) => {
   const [urlThumbnail, setUrlThumbnail] = useState(null);
 
   useEffect(() => {
+    if (ID_VIDEO === null) {
+      /*  console.log("ID_VIDEO is null"); */
+      return;
+    }
+
     const fetchData = async () => {
       try {
         const cachedData = localStorage.getItem("cachedData");
+        const cachedDataArray = JSON.parse(cachedData);
 
-        if (cachedData) {
-          const cachedDataArray = JSON.parse(cachedData);
+        const videoExists = cachedDataArray.some(
+          (video) => video.id === ID_VIDEO
+        );
 
-          if (
-            Array.isArray(cachedDataArray) &&
-            cachedDataArray.length > 0 &&
-            cachedDataArray[0].id === ID_VIDEO
-          ) {
-            setData(cachedDataArray);
-            setChapters(cachedDataArray[0].chapters);
-            setTitle(cachedDataArray[0].title);
-            setChannel(cachedDataArray[0].channel);
-            setDurationVideo(cachedDataArray[0].durationVideo);
-            setUrlThumbnail(cachedDataArray[0].urlThumbnail);
-
-            setLoading(false);
-
-            console.log("Data retrieved from the cache");
-            return;
-          }
+        if (videoExists) {
+          console.log("Video already exists");
+          return;
         }
 
         const urlYoutube = `https://www.googleapis.com/youtube/v3/videos?part=snippet&part=contentDetails&id=${ID_VIDEO}&key=${apiKey}`;
