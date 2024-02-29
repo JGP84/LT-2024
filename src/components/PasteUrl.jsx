@@ -29,7 +29,7 @@ export const PasteUrl = () => {
         channel: channel,
         urlThumbnail: urlThumbnail,
         durationVideo: durationVideo,
-        chapters: addTimeEndProperty(chapters),
+        chapters: chapters ? addTimeEndProperty(chapters) : [],
       };
 
       console.log("videoAdd", videoAdd);

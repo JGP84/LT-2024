@@ -22,7 +22,7 @@ const useApi = (ID_VIDEO) => {
     const fetchData = async () => {
       try {
         const cachedData = localStorage.getItem("cachedData");
-        const cachedDataArray = JSON.parse(cachedData);
+        const cachedDataArray = cachedData ? JSON.parse(cachedData) : [];
 
         const videoExists = cachedDataArray.some(
           (video) => video.id === ID_VIDEO
