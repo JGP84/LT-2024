@@ -18,16 +18,9 @@ jobs:
           echo "VITE_API_KEY=${{ secrets.VITE_API_KEY }}" >> .env
           npm run build
 
-      - name: Check API Key
-        run: |
-          if grep -q "VITE_API_KEY" .env; then
-            echo "VITE_API_KEY is set in .env"
-          else
-            echo "VITE_API_KEY is not set in .env"
-          fi
-
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
           branch: gh-pages
           folder: dist
+          
