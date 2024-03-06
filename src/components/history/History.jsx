@@ -2,6 +2,7 @@
 import { useEffect } from "react";
 import { useHistory } from "../../HistoryContext";
 import DraggableList from "./draggableList/DraggableList";
+import { dummyData } from "./../../data/mock.js";
 
 export const History = () => {
   const {
@@ -18,11 +19,21 @@ export const History = () => {
     const cachedData = localStorage.getItem("cachedData");
     if (cachedData) {
       setHistoryData(JSON.parse(cachedData));
+    } else {
+      // Dummy data for testing purposes
+      setHistoryData(dummyData);
+      setLoading(false);
     }
+
+    // Load currentIdVideo from localStorage on component mount
 
     const cachedCurrentIdVideo = localStorage.getItem("currentIdVideo");
     if (cachedCurrentIdVideo) {
       setCurrentIdVideo(JSON.parse(cachedCurrentIdVideo));
+      setLoading(false);
+    } else {
+      // Dummy data for testing purposes
+      setCurrentIdVideo(dummyData[0].id);
       setLoading(false);
     }
   }, [setHistoryData, setCurrentIdVideo, setLoading]);

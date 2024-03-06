@@ -73,3 +73,4 @@ export const addTimeEndProperty = (arrayOfObjects) => {
 
   return arrayOfObjects;
 };
+

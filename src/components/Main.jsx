@@ -43,8 +43,8 @@ export const Main = () => {
             className="img-container"
             name="myiframe"
             id="myiframe"
-            width="600"
-            height="450"
+            width="450"
+            height="350"
             frameBorder="0"
             allowFullScreen
           ></iframe>
