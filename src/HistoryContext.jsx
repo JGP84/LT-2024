@@ -23,7 +23,7 @@ export const HistoryProvider = ({ children }) => {
   const clearHistory = () => {
     setLoading(true)
     setHistoryData([])
-    localStorage.removeItem("cachedData")
+    localStorage.setItem("cachedData", JSON.stringify([]));
     localStorage.removeItem("currentIdVideo")
   };
 

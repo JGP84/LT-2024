@@ -2,11 +2,18 @@ import { useState, useEffect } from "react";
 import { useHistory } from "../HistoryContext";
 
 export const Main = () => {
-  const { loading, historyData, currentIdVideo } = useHistory();
+  const { loading, setLoading, historyData, currentIdVideo } = useHistory();
   const [title, setTitle] = useState(null);
   const [channel, setChannel] = useState(null);
 
   useEffect(() => {
+
+    const cachedData = localStorage.getItem("cachedData");
+
+    if (cachedData === "[]") {
+      setLoading(true);
+    }
+   
     // Update tasks whenever chapters change
     if (!loading && Array.isArray(historyData) && historyData.length > 0) {
       const indexCurrent = historyData.findIndex(
@@ -24,6 +31,7 @@ export const Main = () => {
         setChannel(null); // Reset channel if it is not available
       }
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loading, historyData, currentIdVideo]);
 
 
