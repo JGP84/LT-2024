@@ -6,9 +6,7 @@ import { getYoutubeVideoId, addTimeEndProperty, storeData } from "../utils";
 export const PasteUrl = () => {
   const [youtubeUrl, setYoutubeUrl] = useState("");
 
-  const { title, channel, urlThumbnail, durationVideo, chapters } = useApi(
-    getYoutubeVideoId(youtubeUrl)
-  );
+  const { data } = useApi(getYoutubeVideoId(youtubeUrl));
 
   const {
     setLoading,
@@ -23,13 +21,22 @@ export const PasteUrl = () => {
     }
 
     const videoId = getYoutubeVideoId(youtubeUrl);
+
+    // Check if the video already exists in the history
+    const videoExistsInHistory = historyData.some(video => video.id === videoId);
+  
+    if (videoExistsInHistory) {
+      console.log("Video already exists in history");
+      return;
+    }
+    
     const videoAdd = {
-      title: title,
+      title: data?.title,
       id: videoId,
-      channel: channel,
-      urlThumbnail: urlThumbnail,
-      durationVideo: durationVideo,
-      chapters: chapters ? addTimeEndProperty(chapters) : [],
+      channel: data?.channel,
+      urlThumbnail: data?.urlThumbnail,
+      durationVideo: data?.durationVideo,
+      chapters: data?.chapters ? addTimeEndProperty(data.chapters) : [],
     };
 
     addToHistory(videoAdd);

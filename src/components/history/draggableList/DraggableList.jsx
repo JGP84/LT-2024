@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import StrictModeDroppable from "./StrictModeDroppable";
 import "./DraggableList.css";
 import { useHistory } from "../../../HistoryContext";
+import { storeData } from "../../../utils";
 
 function DraggableList({ items, onRemoveItem }) {
   const { setCurrentIdVideo, setSimulateClick } = useHistory();
@@ -26,7 +27,7 @@ function DraggableList({ items, onRemoveItem }) {
 
   const handleClick = (id) => {
     setCurrentIdVideo(id);
-    localStorage.setItem("currentIdVideo", JSON.stringify(id));
+    storeData("currentIdVideo", id);
     setSimulateClick(true);
   };
 

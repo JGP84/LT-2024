@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useHistory } from "../../HistoryContext";
 import DraggableList from "./draggableList/DraggableList";
 import { dummyData } from "./../../data/mock.js";
+import { storeData } from "../../utils";
 
 export const History = () => {
   const {
@@ -47,8 +48,8 @@ export const History = () => {
     setHistoryData(updatedData);
     setCurrentIdVideo(currentIdVideo);
 
-    localStorage.setItem("cachedData", JSON.stringify(updatedData));
-    localStorage.setItem("currentIdVideo", JSON.stringify(currentIdVideo));
+    storeData("cachedData", updatedData);
+    storeData("currentIdVideo", currentIdVideo);
   };
 
   return (

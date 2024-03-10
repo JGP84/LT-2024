@@ -1,4 +1,5 @@
 import  { createContext, useContext, useState } from "react";
+import { storeData } from "./utils";
 
 const HistoryContext = createContext();
 
@@ -13,9 +14,6 @@ export const HistoryProvider = ({ children }) => {
   const [simulateClick, setSimulateClick] = useState(false);
 
 
-
- 
-
   const addToHistory = (newItem) => {
     setHistoryData((prevHistory) => [...prevHistory, newItem]);
   };
@@ -23,7 +21,7 @@ export const HistoryProvider = ({ children }) => {
   const clearHistory = () => {
     setLoading(true)
     setHistoryData([])
-    localStorage.setItem("cachedData", JSON.stringify([]));
+    storeData("cachedData", [])
     localStorage.removeItem("currentIdVideo")
   };
 
