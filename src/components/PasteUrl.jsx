@@ -29,7 +29,7 @@ export const PasteUrl = () => {
       console.log("Video already exists in history");
       return;
     }
-    
+
     const videoAdd = {
       title: data?.title,
       id: videoId,
@@ -54,7 +54,7 @@ export const PasteUrl = () => {
   };
 
   return (
-    <div className="row customStyle p-3">
+    <div className="row  p-3">
       <div className="input-group">
         <input
           type="text"

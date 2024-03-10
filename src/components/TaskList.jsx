@@ -59,7 +59,7 @@ export const TaskList = () => {
   };
 
   return (
-    <div className="col-md-3  customStyle p-3 border-start border-black">
+    <div className="col-md-3   p-3 border-start border-black">
       {loading ? (
         <>{/* <h5>Loading...</h5> */}</>
       ) : (

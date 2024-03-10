@@ -33,7 +33,7 @@ export const Main = () => {
 
   return (
     <>
-      <div className="row customStyle p-3">
+      <div className="row  p-3">
         {loading ? (
           <>
             {/* <h5>Loading...</h5> */}
@@ -53,7 +53,7 @@ export const Main = () => {
               allowFullScreen
             ></iframe>
 
-            <h3 className="mt-3">{videoData.channel}</h3>
+            <h2 className="mt-3">{videoData.channel}</h2>
           </>
         )}
       </div>

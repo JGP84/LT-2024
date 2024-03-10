@@ -1,7 +1,7 @@
 
 export const Logo = () => {
   return (
-    <div className="col-md-2  customStyle p-3">
+    <div className="col-md-2 p-3">
    
 
    <h1>Learn</h1> 

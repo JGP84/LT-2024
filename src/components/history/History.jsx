@@ -53,7 +53,7 @@ export const History = () => {
   };
 
   return (
-    <div className="col-md-2  customStyle text-center p-3 border-end border-black">
+    <div className="col-md-2   text-center p-3 border-end border-black">
       {loading ? (
         <>{/*  <h5>Loading...</h5> */}</>
       ) : (

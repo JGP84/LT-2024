@@ -1,66 +1,73 @@
-body {
-  background-color: #2a385c;
+/* Variables */
+:root {
+  --main-color: purple;
+  --main-bg-color: #2a385c;
+  --container-bg-color: rgb(250, 225, 250);
+  --main-font-size: large;
+  --main-padding: 10px;
+  --main-border-radius: 10px;
 }
-h1 {
-  color: purple;
+
+/* Body styles */
+body {
+  background-color: var(--main-bg-color);
+}
+
+/* Header and task container styles */
+h1,
+.task-container {
+  color: var(--main-color);
   font-weight: bold;
 }
 
-.container-app {
-  background-color: rgb(250, 225, 250);
-  border-radius: 10px;
+/* Container styles */
+.container-app,
+.border-radius {
+  background-color: var(--container-bg-color);
+  border-radius: var(--main-border-radius);
   padding: 3rem;
   margin-top: 2rem;
 }
 
-.btn-primary {
-  background-color: purple;
-  border-color: purple;
-  font-size: large;
-  
-  padding: 10px;
+/* Button, label, and image container styles */
+.btn-primary,
+.clicked-label-style,
+.img-container {
+  background-color: var(--main-color);
+  border-color: var(--main-color);
+  font-size: var(--main-font-size);
+  padding: var(--main-padding);
 }
 
+/* Button hover styles */
 .btn-primary:hover {
-  background-color: purple;
-  border-color: purple;
-  font-size: large;
-  
-  padding: 10px;
+  background-color: rgba(128, 0, 128, 0.7); /* Purple with 70% opacity */
+  border-color: rgba(128, 0, 128, 0.7); /* Purple with 70% opacity */
 }
 
-.border-radius {
- border-radius: 10px;
-}
-
-.checked-label-style {
+/* Checked label and input styles */
+.checked-label-style,
+.checked-input-style {
   opacity: 40%;
+}
+
+/* Checked label styles */
+.checked-label-style {
   text-decoration: line-through;
   text-decoration-thickness: 2px;
 }
 
-.checked-input-style {
-  opacity: 40%;
-}
-.clicked-label-style {
-  color: white;
-  background-color: purple;
-}
-
+/* Task container styles */
 .task-container {
   display: inline-block;
-  color: purple;
-  font-size: large;
-  font-weight: 600;
   border-radius: 5px;
-  border: 2px solid purple; 
+  border: 2px solid var(--main-color); 
   padding:0.8rem;
 }
 
+/* Image container styles */
 .img-container {
   border: none;
   border-radius: 5px;
-  background-color: purple;
   padding: 5px;
 }
-

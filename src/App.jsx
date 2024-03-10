@@ -18,7 +18,7 @@ function App() {
         <div className="row">
           <History />
 
-          <div className="col-md-7  customStyle">
+          <div className="col-md-7  ">
             <PasteUrl />
             <Main />
           </div>
