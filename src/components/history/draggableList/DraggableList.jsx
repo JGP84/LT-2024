@@ -11,7 +11,6 @@ function DraggableList({ items, onRemoveItem }) {
   const [stateItems, updateItems] = useState(items);
 
   useEffect(() => {
-    // Update the items when the 'items' prop changes
     updateItems(items);
   }, [items]);
 
@@ -22,7 +21,6 @@ function DraggableList({ items, onRemoveItem }) {
     const [reorderedItem] = updatedItems.splice(result.source.index, 1);
     updatedItems.splice(result.destination.index, 0, reorderedItem);
 
-    // Update the state with the reordered items
     updateItems(updatedItems);
   };
 
@@ -75,7 +73,7 @@ function DraggableList({ items, onRemoveItem }) {
                     </button>
 
                     <button
-                       className="btn btn-danger btn-sm mt-1"
+                      className="btn btn-danger btn-sm mt-1"
                       onClick={() => handleRemoveItem(id)}
                     >
                       <i className="bi bi-trash"></i>
