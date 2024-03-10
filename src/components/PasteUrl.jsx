@@ -1,7 +1,7 @@
 import { useState } from "react";
 import useApi from "../hooks/useApi";
 import { useHistory } from "../HistoryContext";
-import { getYoutubeVideoId, addTimeEndProperty } from "../utils";
+import { getYoutubeVideoId, addTimeEndProperty, storeData } from "../utils";
 
 export const PasteUrl = () => {
   const [youtubeUrl, setYoutubeUrl] = useState("");
@@ -14,40 +14,32 @@ export const PasteUrl = () => {
     setLoading,
     addToHistory,
     historyData,
-    currentIdVideo,
     setCurrentIdVideo,
   } = useHistory();
 
   const handleClick = () => {
     if (!youtubeUrl.trim()) {
       return;
-    } else {
-      const videoId = getYoutubeVideoId(youtubeUrl);
-      const videoAdd = {
-        title: title,
-        id: videoId,
-        channel: channel,
-        urlThumbnail: urlThumbnail,
-        durationVideo: durationVideo,
-        chapters: chapters ? addTimeEndProperty(chapters) : [],
-      };
-
-      console.log("videoAdd", videoAdd);
-
-      addToHistory(videoAdd);
-      console.log("currentIdVideo before", currentIdVideo);
-      setCurrentIdVideo(videoId);
-      console.log("currentIdVideo after", currentIdVideo);
-
-      setLoading(false);
-      setYoutubeUrl("");
-
-      localStorage.setItem(
-        "cachedData",
-        JSON.stringify([...historyData, videoAdd])
-      );
-      localStorage.setItem("currentIdVideo", JSON.stringify(videoId));
     }
+
+    const videoId = getYoutubeVideoId(youtubeUrl);
+    const videoAdd = {
+      title: title,
+      id: videoId,
+      channel: channel,
+      urlThumbnail: urlThumbnail,
+      durationVideo: durationVideo,
+      chapters: chapters ? addTimeEndProperty(chapters) : [],
+    };
+
+    addToHistory(videoAdd);
+    setCurrentIdVideo(videoId);
+
+    setLoading(false);
+    setYoutubeUrl("");
+
+    storeData("cachedData", [...historyData, videoAdd]);
+    storeData("currentIdVideo", videoId);
   };
 
   const handleChange = (e) => {

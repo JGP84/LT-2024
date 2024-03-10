@@ -74,3 +74,6 @@ export const addTimeEndProperty = (arrayOfObjects) => {
   return arrayOfObjects;
 };
 
+export const storeData = (key, data) => {
+  localStorage.setItem(key, JSON.stringify(data));
+};
