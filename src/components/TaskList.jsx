@@ -1,22 +1,21 @@
 import { useState, useEffect } from "react";
 import { useHistory } from "../HistoryContext";
+import { storeData } from "../utils";
 
 export const TaskList = () => {
   const [tasks, setTasks] = useState([]);
+  const [selectedTask, setSelectedTask] = useState(null);
 
   const { loading, historyData, setHistoryData, currentIdVideo } = useHistory();
 
-  const [selectedTask, setSelectedTask] = useState(null);
-
   useEffect(() => {
     // Update tasks whenever chapters change
-    if (!loading && Array.isArray(historyData) && historyData.length > 0) {
-      const indexCurrent = historyData.findIndex(
+    if (!loading && historyData.length > 0) {
+      const currentVideo = historyData.find(
         (video) => video.id === currentIdVideo
       );
-      if (indexCurrent !== -1 && historyData[indexCurrent].chapters) {
-        const tasksCurrentVideo = historyData[indexCurrent].chapters;
-        setTasks(tasksCurrentVideo);
+      if (currentVideo && currentVideo.chapters) {
+        setTasks(currentVideo.chapters);
       } else {
         setTasks([]); // Reset tasks if chapters are not available
       }
@@ -24,37 +23,21 @@ export const TaskList = () => {
   }, [loading, historyData, currentIdVideo]);
 
   const handleCheckboxChange = (taskId) => {
-    const updatedHistoryData = [...historyData]; // Create a copy of the array
-
-    const indexCurrent = updatedHistoryData.findIndex(
-      (video) => video.id === currentIdVideo
-    );
-
-    if (indexCurrent !== -1) {
-      const tasksCurrentVideo = updatedHistoryData[indexCurrent].chapters;
-
-      const indexTask = tasksCurrentVideo.findIndex(
-        (task) => task.id === taskId
-      );
-
-      if (indexTask !== -1) {
-        // Create a copy of the task to update its checked property
-        const updatedTask = {
-          ...tasksCurrentVideo[indexTask],
-          checked: !tasksCurrentVideo[indexTask].checked,
-        };
-
-        // Update the array with the new task
-        tasksCurrentVideo[indexTask] = updatedTask;
-
-        // Update the video object with the modified chapters array
-        updatedHistoryData[indexCurrent].chapters = tasksCurrentVideo;
-
-        // Set the state with the updated data
-        setHistoryData(updatedHistoryData);
+    const updatedHistoryData = historyData.map((video) => {
+      if (video.id === currentIdVideo) {
+        const updatedChapters = video.chapters.map((chapter) => {
+          if (chapter.id === taskId) {
+            return { ...chapter, checked: !chapter.checked };
+          }
+          return chapter;
+        });
+        return { ...video, chapters: updatedChapters };
       }
-    }
-    localStorage.setItem("cachedData", JSON.stringify(updatedHistoryData));
+      return video;
+    });
+
+    setHistoryData(updatedHistoryData);
+    storeData("cachedData", updatedHistoryData);
   };
 
   useEffect(() => {
@@ -69,7 +52,7 @@ export const TaskList = () => {
         labelElement.click();
       }
     }
-  }, [tasks]); 
+  }, [tasks]);
 
   const handleTaskClick = (taskId) => {
     setSelectedTask(taskId);
@@ -78,12 +61,9 @@ export const TaskList = () => {
   return (
     <div className="col-md-3  customStyle p-3 border-start border-black">
       {loading ? (
-        <>
-          {/* <h5>Loading...</h5> */}
-        </>
+        <>{/* <h5>Loading...</h5> */}</>
       ) : (
         <>
-        
           <h3 className="mb-3">Learning Tasks:</h3>
           {tasks.map((task) => (
             <div className="form-check" key={task.id}>
