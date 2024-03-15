@@ -1,4 +1,5 @@
 import "./App.css";
+import { CarrouselVideos } from "./components/carrousel/CarrouselVideos";
 import { History } from "./components/history/History";
 import { Logo } from "./components/Logo";
 import { Main } from "./components/Main";
@@ -14,7 +15,7 @@ function App() {
           <Logo />
           <Navbar />
         </div>
-
+        <CarrouselVideos />
         <div className="row">
           <History />
 

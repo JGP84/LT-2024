@@ -69,3 +69,13 @@ export const addTimeEndProperty = (arrayOfObjects) => {
 export const storeData = (key, data) => {
   localStorage.setItem(key, JSON.stringify(data));
 };
+
+export  const createThumbnailArray = (data) => {
+  let thumbnailArray = [];
+  for(let item of data) {
+      if(item.urlThumbnail) {
+          thumbnailArray.push(item.urlThumbnail);
+      }
+  }
+  return thumbnailArray;
+}
