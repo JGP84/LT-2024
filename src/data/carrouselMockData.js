@@ -3,7 +3,7 @@ export const carrouselMockData = [
       "id": "a19d77b4-20f3-4c6e-bcd7-8ea0015da607",
       "title": "Aprende Tailwind CSS - Curso Completo",
       "channel": "freeCodeCamp Español",
-      "urlThumbnail": "https://i.ytimg.com/vi/5HtRcMSO1Ro/mqdefault.jpg",
+      "urlThumbnail": "https://i.ytimg.com/vi/5HtRcMSO1Ro/hqdefault.jpg",
       "durationVideo": "PT11H46M53S",
       "viewCount": "8159",
       "chapters": [
@@ -129,7 +129,7 @@ export const carrouselMockData = [
       "id": "5be5ac8b-c7e0-4a7f-8ea4-ad5887b4388b",
       "title": "Aprende CSS Flexbox - Curso desde Cero",
       "channel": "freeCodeCamp Español",
-      "urlThumbnail": "https://i.ytimg.com/vi/iwFEc6I8wSA/mqdefault.jpg",
+      "urlThumbnail": "https://i.ytimg.com/vi/iwFEc6I8wSA/hqdefault.jpg",
       "durationVideo": "PT1H3S",
       "viewCount": "8015",
       "chapters": [
@@ -264,7 +264,7 @@ export const carrouselMockData = [
       "id": "b6df1e33-5619-4e2e-b951-92d8ff975f54",
       "title": "Crea 7 Proyectos con HTML, CSS y JavaScript - Curso Práctico",
       "channel": "freeCodeCamp Español",
-      "urlThumbnail": "https://i.ytimg.com/vi/BA328RQa08M/mqdefault.jpg",
+      "urlThumbnail": "https://i.ytimg.com/vi/BA328RQa08M/hqdefault.jpg",
       "durationVideo": "PT3H12M56S",
       "viewCount": "34567",
       "chapters": [
@@ -345,7 +345,7 @@ export const carrouselMockData = [
       "id": "7f5580a8-790e-4569-aa16-26d0c46c5795",
       "title": "Curso de JavaScript desde Cero - Aprende JavaScript",
       "channel": "freeCodeCamp Español",
-      "urlThumbnail": "https://i.ytimg.com/vi/v8Evfd6AFpw/mqdefault.jpg",
+      "urlThumbnail": "https://i.ytimg.com/vi/v8Evfd6AFpw/hqdefault.jpg",
       "durationVideo": "PT2H26M13S",
       "viewCount": "42732",
       "chapters": [
@@ -444,7 +444,7 @@ export const carrouselMockData = [
       "id": "3688d3ef-2ffa-4873-91ef-e3c16f0bcfab",
       "title": "Crea una Pokédex con HTML, CSS y JavaScript (PokéAPI)",
       "channel": "freeCodeCamp Español",
-      "urlThumbnail": "https://i.ytimg.com/vi/drXkf_rytRs/mqdefault.jpg",
+      "urlThumbnail": "https://i.ytimg.com/vi/drXkf_rytRs/hqdefault.jpg",
       "durationVideo": "PT1H2M10S",
       "viewCount": "32336",
       "chapters": [
@@ -507,7 +507,7 @@ export const carrouselMockData = [
       "id": "f9aed08c-db3e-401d-bea9-f2f1c6f4e5d8",
       "title": "Web Scraping con Python - Curso con Beautiful Soup",
       "channel": "freeCodeCamp Español",
-      "urlThumbnail": "https://i.ytimg.com/vi/yKi9-BfbfzQ/mqdefault.jpg",
+      "urlThumbnail": "https://i.ytimg.com/vi/yKi9-BfbfzQ/hqdefault.jpg",
       "durationVideo": "PT1H40M20S",
       "viewCount": "62980",
       "chapters": [
@@ -723,7 +723,7 @@ export const carrouselMockData = [
       "id": "5c4901af-d762-4586-b7cb-4e539dd0c78e",
       "title": "JavaScript para Manipulación del DOM - Curso con Proyectos",
       "channel": "freeCodeCamp Español",
-      "urlThumbnail": "https://i.ytimg.com/vi/koiPxFFiqJ4/mqdefault.jpg",
+      "urlThumbnail": "https://i.ytimg.com/vi/koiPxFFiqJ4/hqdefault.jpg",
       "durationVideo": "PT5H30M17S",
       "viewCount": "140418",
       "chapters": [
@@ -1227,7 +1227,7 @@ export const carrouselMockData = [
       "id": "8355b76c-dc97-434e-9d8a-fc0e2793dce6",
       "title": "Aprende Git y GitHub - Curso desde Cero",
       "channel": "freeCodeCamp Español",
-      "urlThumbnail": "https://i.ytimg.com/vi/mBYSUUnMt9M/mqdefault.jpg",
+      "urlThumbnail": "https://i.ytimg.com/vi/mBYSUUnMt9M/hqdefault.jpg",
       "durationVideo": "PT5H32M55S",
       "viewCount": "218392",
       "chapters": [
@@ -1686,7 +1686,7 @@ export const carrouselMockData = [
       "id": "1ff8931f-9cb1-4625-a6c7-46407b948f12",
       "title": "Aprende Bootstrap 5 - Curso de Bootstrap desde Cero",
       "channel": "freeCodeCamp Español",
-      "urlThumbnail": "https://i.ytimg.com/vi/QCw0L6FupQ0/mqdefault.jpg",
+      "urlThumbnail": "https://i.ytimg.com/vi/QCw0L6FupQ0/hqdefault.jpg",
       "durationVideo": "PT5H4M13S",
       "viewCount": "265316",
       "chapters": [
@@ -1983,7 +1983,7 @@ export const carrouselMockData = [
       "id": "837691a5-28cc-47b3-a16e-085981a38e5f",
       "title": "Aprende Node.js y Express - Curso desde Cero",
       "channel": "freeCodeCamp Español",
-      "urlThumbnail": "https://i.ytimg.com/vi/1hpc70_OoAg/mqdefault.jpg",
+      "urlThumbnail": "https://i.ytimg.com/vi/1hpc70_OoAg/hqdefault.jpg",
       "durationVideo": "PT8H29M33S",
       "viewCount": "424767",
       "chapters": [
