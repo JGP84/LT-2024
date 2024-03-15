@@ -62,6 +62,7 @@ body {
 .container {
   max-width: 124rem;
   padding: 4rem 1rem;
+  height: 43rem;
   margin: 0 auto;
 }
 
