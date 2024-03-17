@@ -71,3 +71,7 @@ h1,
   border-radius: 5px;
   padding: 5px;
 }
+
+.form-check label {
+  font-size: 1rem; /* Adjust as needed */
+}

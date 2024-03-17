@@ -16,6 +16,7 @@ function App() {
           <Navbar />
         </div>
         <CarrouselVideos />
+        <hr />
         <div className="row">
           <History />
 
